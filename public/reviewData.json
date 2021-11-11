@@ -1,0 +1,56 @@
+[
+  {
+    "uid": 1,
+    "userName": "Porfirio Murphy",
+    "userEmail": "porfiriomurphy@gmail.com",
+    "userProfession": "Buisnessman",
+    "userPhoto": "https://i.ibb.co/pb1m9yf/image.png",
+    "rating": 4.8,
+    "content": "I took 2021 Honda Odyssey, last month. They provide me best service I have ever seen. And the car is full fit, Good car according at that segment, it has the good build quality, and good mileage, and also it has a 4-star safety rating. I'm happy with this car."
+  },
+  {
+    "uid": 2,
+    "userName": "Charles Morello",
+    "userEmail": "charlesmorello@gmail.com",
+    "userProfession": "Buisnessman",
+    "userPhoto": "https://i.ibb.co/z6vRqXH/image.png",
+    "rating": 4.7,
+    "content": "This is a great sites, easy to use, provide all of the information necessary in order to make an informed decision. No salesperson to deal with, the price is the price, good product description. Overall a great experience with this site."
+  },
+  {
+    "uid": 3,
+    "userName": "Jerry Toe",
+    "userEmail": "jerrytoe@gmail.com",
+    "userProfession": "Car Specialist",
+    "userPhoto": "https://thumbs.dreamstime.com/b/successful-businessman-handsome-african-american-man-stylish-suit-blue-jacket-standing-front-cool-new-black-car-160123065.jpg",
+    "rating": 3.5,
+    "content": "It is a good site with many, many car to choose from. Their filters enable you to look based on zip codes, price and car model. I especially like being to enter my zip code and how many miles away that I could go test drive."
+  },
+  {
+    "uid": 4,
+    "userName": "Richie Taton",
+    "userEmail": "richietaton@gmail.com",
+    "userProfession": "Fashion Designer",
+    "userPhoto": "https://image.freepik.com/free-photo/portrait-pretty-woman-front-car_23-2148384977.jpg",
+    "rating": 4.7,
+    "content": "I really love how easy the navigation online is..and also in person they make you feel as if you were family. They have a really nice selection and they aren't over priced. I would always do business with these guys...now and forever."
+  },
+  {
+    "uid": 5,
+    "userName": "Lucie Eithel",
+    "userEmail": "lucieeithel@gmail.com",
+    "userProfession": "Web Developer",
+    "userPhoto": "https://c0.wallpaperflare.com/preview/921/549/92/woman-standing-infront-of-whit-suv.jpg",
+    "rating": 4.5,
+    "content": "It was fun using the Max Wheel site to get my dream car. However the price was way over what I expected and I could not purchase the vehicle. I bought the same vehicle for $5000 less on a special discount. "
+  },
+  {
+    "uid": 6,
+    "userName": "Kanh hu wan",
+    "userEmail": "kanhhuwan@gmail.com",
+    "userProfession": "Software Engineer",
+    "userPhoto": "https://i.ibb.co/zV5r1p6/image.png",
+    "rating": 5,
+    "content": "Max wheel is a great website. They cleared my all confusion patiencely before placing orders. They provide me the best and exact car what I want. You can trust them easily"
+  }
+]

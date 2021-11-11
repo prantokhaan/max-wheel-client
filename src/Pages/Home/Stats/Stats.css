@@ -1,0 +1,54 @@
+.stats-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+    padding: 2rem 1rem;
+    background: #eee;
+}
+
+.stats-container .stats{
+    background:#fff;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    padding:2rem;
+    gap:1.5rem;
+}
+
+.stats-container .stats i{
+    height:5rem;
+    width:5rem;
+    line-height:5rem;
+    font-size:2.5rem;
+    color:#130f40;
+    background:#eee;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.stats-container .stats .content h3{
+    font-size: 1.5rem;
+    color:#4361ee;
+}
+
+.stats-container .stats .content p{
+    font-size: 1rem;
+    color:#666;
+}
+
+.stats-container .stats:hover{
+    background:#130f40;
+}
+
+.stats-container .stats:hover i{
+    background:#f9d806;
+}
+
+.stats-container .stats:hover .content h3{
+    color:#fff;
+}
+
+.stats-container .stats:hover .content p{
+    color:#eee;
+}
