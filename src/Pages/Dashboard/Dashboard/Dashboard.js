@@ -36,7 +36,7 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 
 const drawerWidth = 240;
-const drawerHeight = 450;
+const drawerHeight = 400;
 
 function Dashboard(props) {
   const { window } = props;
