@@ -21,7 +21,6 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);
-  const [token, setToken] = useState("");
 
   const auth = getAuth();
 
@@ -34,7 +33,7 @@ const useFirebase = () => {
         const newUser = { email, displayName: name, phoneNumber: phoneNumber };
         setUser(newUser);
         // save user to database
-        // saveUser(email, name, "POST");
+        saveUser(email, name, "POST");
         // send name to firebase
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -58,6 +57,8 @@ const useFirebase = () => {
       .then(() => {
         const destination = location?.state?.from || "/";
         history.replace(destination);
+        saveUser(email, password,  "PUT");
+
         setAuthError("");
       })
       .catch((error) => {
@@ -73,7 +74,7 @@ const useFirebase = () => {
         const destination = location?.state?.from || "/";
         history.replace(destination);
         setUser(result.user);
-        // saveUser(result.user.email, user.displayName, "PUT");
+        saveUser(result.user.email, result.user.displayName, "PUT");
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -81,15 +82,12 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  // observe user presence
-
+  
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        getIdToken(user).then((idToken) => {
-          setToken(idToken);
-        });
+        
       } else {
         setUser({});
       }
@@ -98,13 +96,13 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, []);
 
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/users/${user.email}`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setAdmin(data.admin);
-//       });
-//   }, [user.email]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAdmin(data.admin);
+      });
+  }, [user.email]);
 
   const logOut = () => {
     setIsLoading(true);
@@ -118,24 +116,22 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-//   // save user to database
-//   const saveUser = (email, displayName, method) => {
-//     const user = { email, displayName };
-//     fetch("http://localhost:5000/users", {
-//       method: method,
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//       body: JSON.stringify(user),
-//     }).then();
-//   };
+  // save user to database
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user)
+    }).then()
+  };
 
-  // admin authentication
 
   return {
     user,
     admin,
-    token,
     authError,
     isLoading,
     registerUser,

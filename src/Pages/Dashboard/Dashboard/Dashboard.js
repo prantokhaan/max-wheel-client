@@ -31,11 +31,9 @@ import GiveReview from "../GiveReview/GiveReview";
 import Pay from "../Pay/Pay";
 import MyOrders from "../MyOrders/MyOrders";
 import ManageOrders from "../ManageOrders/ManageOrders";
-// import DashboardHome from "../DashboardHome/DashboardHome";
-// import MakeAdmin from "../MakeAdmin/MakeAdmin";
-// import AddDoctor from "../AddDoctor/AddDoctor";
-// import useAuth from "../../../Hooks/useAuth";
-// import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import ManageCars from "../ManageCars/ManageCars";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 
 const drawerWidth = 240;
 const drawerHeight = 450;
@@ -45,14 +43,14 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
+  const { admin, logOut } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
-    <Box sx={{ }}>
+    <Box sx={{}}>
       <Toolbar
         sx={{ backgroundColor: "#393343", borderRight: "-2px solid #393343" }}
       >
@@ -65,21 +63,13 @@ function Dashboard(props) {
             fontWeight: 500,
             color: "white",
           }}
-        >Max Wheels</Typography>
+        >
+          Max Wheels
+        </Typography>
       </Toolbar>
-      {/* <Link to={`${url}`} style={{ color: "black", textDecoration: "none" }}>
-        <Button color="inherit">Dashboard</Button>
-      </Link> */}
-      <List sx={{}}>
-        <Link to={`${url}`} style={{ textDecoration: "none", color: "white" }}>
-          <Button variant="inherit" style={{ fontWeight: 600, color: "black" }}>
-            Dashboard
-          </Button>
-        </Link>
-      </List>
 
       <Divider />
-      {!admin && (
+      {admin ? (
         <Box>
           <List>
             <Link
@@ -111,17 +101,34 @@ function Dashboard(props) {
           <Divider />
           <List>
             <Link
-              to={`${url}/giveReview`}
+              to={`${url}/manageOrders`}
               style={{ textDecoration: "none", color: "white" }}
             >
               <Button
                 variant="inherit"
                 style={{ fontWeight: 600, color: "black" }}
               >
-                Give a Review
+                Manage Orders
               </Button>
             </Link>
           </List>
+          <Divider />
+          <List>
+            <Link
+              to={`${url}/manageCars`}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <Button
+                variant="inherit"
+                style={{ fontWeight: 600, color: "black" }}
+              >
+                Manage Cars
+              </Button>
+            </Link>
+          </List>
+        </Box>
+      ) : (
+        <Box>
           <Divider />
           <List>
             <Link
@@ -153,27 +160,25 @@ function Dashboard(props) {
           <Divider />
           <List>
             <Link
-              to={`${url}/manageOrders`}
+              to={`${url}/giveReview`}
               style={{ textDecoration: "none", color: "white" }}
             >
               <Button
                 variant="inherit"
                 style={{ fontWeight: 600, color: "black" }}
               >
-                Manage Orders
+                Give a Review
               </Button>
             </Link>
           </List>
         </Box>
       )}
+
       <Divider />
       <List>
-        <Link
-          to="/appointment"
-          style={{ color: "black", textDecoration: "none" }}
-        >
-          <Button color="inherit">Book An Appointment</Button>
-        </Link>
+        <Button onClick={logOut} variant="inherit" style={{ fontWeight: 600, color: "black" }}>
+          Log Out
+        </Button>
       </List>
       <Divider />
     </Box>
@@ -250,9 +255,9 @@ function Dashboard(props) {
           <Route exact path={path}>
             <DashboardHome />
           </Route>
-          <Route path={`${path}/addNewCar`}>
+          <AdminRoute path={`${path}/addNewCar`}>
             <AddNewCar />
-          </Route>
+          </AdminRoute>
           <Route path={`${path}/giveReview`}>
             <GiveReview />
           </Route>
@@ -262,16 +267,16 @@ function Dashboard(props) {
           <Route path={`${path}/myOrders`}>
             <MyOrders />
           </Route>
-          <Route path={`${path}/manageOrders`}>
+          <AdminRoute path={`${path}/manageOrders`}>
             <ManageOrders />
-          </Route>
-
-          {/* <AdminRoute path={`${path}/makeAdmin`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageCars`}>
+            <ManageCars />
+          </AdminRoute>
+          <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin />
           </AdminRoute>
-          <AdminRoute path={`${path}/addDoctor`}>
-            <AddDoctor />
-          </AdminRoute> */}
+
         </Switch>
       </Box>
     </Box>

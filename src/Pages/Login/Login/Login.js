@@ -14,6 +14,27 @@ import React from 'react';
 import { Link, NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import loginImg from '../../../images/login-car.svg';
+import { styled } from "@mui/system";
+import Loading from './../../../Shared/Loading';
+
+const ButtonStyled = styled(Button)({
+  fontFamily: `'Poppins', sans-serif`,
+  fontSize: "18px",
+  marginTop: '20px',
+  marginLeft: '25%',
+  fontWeight: 500,
+  color: "#4361EE",
+  backgroundColor: "transparent",
+  border: "2px solid #4361EE",
+  transition: "all 0.5s ease",
+
+  "&:hover": {
+    backgroundColor: "#4361EE",
+    boxShadow: "none",
+    color: "white",
+    fontWeight: 500,
+  },
+});
 
 const Login = () => {
   const [loginData, setLoginData] = React.useState({});
@@ -85,16 +106,14 @@ const Login = () => {
                 >
                   Login
                 </Button>
-                <Button
+                <ButtonStyled
                   onClick={handleGoogleSignIn}
-                  variant="contained"
-                  sx={{ width: 1, mt: 2 }}
                 >
-                  Login with Google
-                </Button>
+                  <i className="fab fa-google" style={{marginRight: '5px'}}></i>Login with Google
+                </ButtonStyled>
               </form>
             )}
-            {isLoading && <CircularProgress />}
+            {isLoading && <Loading />}
             {user.email && (
               <Alert severity="success" sx={{ mt: 2 }}>
                 User Logged In Successfully

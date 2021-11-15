@@ -1,5 +1,5 @@
-import { Button, Container, Grid, Input, TextField, Typography } from '@mui/material';
-import { styled } from '@mui/system';
+import { Alert, Button, Container, Grid, Input, TextField, Typography } from '@mui/material';
+import { Box, styled } from '@mui/system';
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import Loading from '../../Shared/Loading';
@@ -34,6 +34,8 @@ const PurchasedCar = ({ purchasedCar }) => {
     userPhoneNumber: "",
   };
   const [purchaseInfo, setPurchaseInfo] = React.useState(defaultInfo);
+  const [isPurchased, setIsPurchased] = React.useState(false);
+
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -59,7 +61,12 @@ const PurchasedCar = ({ purchasedCar }) => {
       body: JSON.stringify(purchase),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if(data.insertedId !== ''){
+          setIsPurchased(true);
+          e.target.reset()
+        }
+      });
   };
   return (
     <div>
@@ -201,6 +208,13 @@ const PurchasedCar = ({ purchasedCar }) => {
                 <ButtonStyled type="submit" variant="contained">
                   Purchase Now
                 </ButtonStyled>
+                <Box>
+                  {isPurchased && (
+                    <Alert severity="success" color="info" sx={{  mt: 2 }}>
+                      Your Car Purchased Successfully
+                    </Alert>
+                  )}
+                </Box>
               </form>
             </Grid>
             <Grid item xs={12} md={6}>

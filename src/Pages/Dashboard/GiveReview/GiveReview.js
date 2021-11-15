@@ -140,7 +140,7 @@ const GiveReview = () => {
             style={{ width: "75%", boxShadow: "0 8px 16px #EEEBDD" }}
             onBlur={handleOnBlur}
             label="Give us a Rating between 1 to 5"
-            min={1}
+            min={0}
             max={5}
             name="rating"
             type="number"
@@ -200,7 +200,7 @@ const GiveReview = () => {
           </ButtonStyled>
           <Box>
             {isReviewed && (
-              <Alert severity="success" color="info" sx={{ ml: 3 }}>
+              <Alert severity="success" color="info" sx={{ ml: 3, mt: 3 }}>
                 Reviewed Successfully
               </Alert>
             )}

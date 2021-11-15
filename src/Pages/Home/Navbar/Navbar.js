@@ -74,8 +74,16 @@ export default function BackToTop(props) {
       <CssBaseline />
       <AppBar style={{ backgroundColor: "#393343" }}>
         <Toolbar style={{ justifyContent: "space-between" }}>
-          <Typography variant="h6" component="div">
-            CARS
+          <Typography
+            variant="h6"
+            component="div"
+            style={{
+              fontFamily: `'Oswald', sans-serif`,
+              textTransform: "uppercase",
+              fontSize: "25px",
+            }}
+          >
+            Max Wheels
           </Typography>
           {isMatch ? (
             <Box style={{ mt: 0 }}>
@@ -109,6 +117,7 @@ export default function BackToTop(props) {
                       Reviews
                     </Button>
                   </Link>
+
                   <Link
                     to="/dashboard"
                     style={{ textDecoration: "none", color: "white" }}
@@ -117,14 +126,32 @@ export default function BackToTop(props) {
                       Dashboard
                     </Button>
                   </Link>
+
+                  <Button
+                    style={{ color: "white" }}
+                    onClick={logOut}
+                    variant="inherit"
+                    style={{ fontWeight: 600 }}
+                  >
+                    LogOut
+                  </Button>
+                  <Link
+                    to="/dashboard"
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                      border: "2px solid white",
+                      borderRadius: "5px",
+                    }}
+                  >
                     <Button
-                    style={{color: 'white'}}
-                      onClick={logOut}
                       variant="inherit"
                       style={{ fontWeight: 600 }}
+                      sx={{ py: 3 }}
                     >
-                      LogOut
+                      Hey, {user.displayName}
                     </Button>
+                  </Link>
                 </Box>
               ) : (
                 <Box>

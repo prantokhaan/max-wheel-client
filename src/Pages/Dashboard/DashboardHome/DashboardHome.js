@@ -1,10 +1,18 @@
+import { Container, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react';
+import useAuth from '../../../Hooks/useAuth';
+import './DashboardHome.css';
+import welcome from './../../../images/Welcome-amico.svg'
 
 const DashboardHome = () => {
+    const {user, logOut} = useAuth();
     return (
-        <div>
-            <h2 style={{marginTop: '-70px'}}>this is dashboard home</h2>
-        </div>
+      <Container style={{ marginTop: "-70px" }}>
+       <Box style={{textAlign: 'center'}}>
+            <img src={welcome} alt="" width="700px" /> 
+       </Box>
+      </Container>
     );
 };
 

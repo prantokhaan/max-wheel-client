@@ -6,7 +6,7 @@ import useAuth from '../../../Hooks/useAuth';
 
 const AdminRoute = ({ children, ...rest }) => {
   const { user, admin, isLoading } = useAuth();
-  if (isLoading) {
+  if (!admin) {
     return (
       <Box sx={{ mt: 2, ml: 3 }}>
         <Grid container spacing={2}>
@@ -55,7 +55,7 @@ const AdminRoute = ({ children, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/dashboard",
               state: { from: location },
             }}
           />
