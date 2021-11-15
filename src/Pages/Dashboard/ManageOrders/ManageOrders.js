@@ -36,14 +36,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const ManageOrders = () => {
     const [orders, setOrders] = React.useState([]);
-    const [isDeleted, setIsDeleted] = React.useState(null);
     const [status, setStatus] = React.useState(["Shipped"]);
     const [open, setOpen] = React.useState(false);
 
     React.useEffect(() => {
-        fetch("http://localhost:5000/purchased")
-        .then(res => res.json())
-        .then(data => setOrders(data))
+        fetch("https://calm-plateau-72250.herokuapp.com/purchased")
+          .then((res) => res.json())
+          .then((data) => setOrders(data));
     }, [orders?.length, status]);
 
      const handleDelete = (id) => {
@@ -51,7 +50,7 @@ const ManageOrders = () => {
          "Are you sure, you want to delete this order?"
        );
        if (proceed) {
-         fetch(`http://localhost:5000/deleteOrder/${id}`, {
+         fetch(`https://calm-plateau-72250.herokuapp.com/deleteOrder/${id}`, {
            method: "DELETE",
            headers: { "content-type": "application/json" },
          })
@@ -72,7 +71,7 @@ const ManageOrders = () => {
     const handleStatusUpdate = (id) => {
       const newStatus = ["Shipped"];
       setStatus(newStatus);
-      fetch(`http://localhost:5000/updateStatus/${id}`, {
+      fetch(`https://calm-plateau-72250.herokuapp.com/updateStatus/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

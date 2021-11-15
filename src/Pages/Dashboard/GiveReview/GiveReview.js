@@ -44,7 +44,7 @@ const GiveReview = () => {
         const review = {
           ...reviewInfo,
         }
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://calm-plateau-72250.herokuapp.com/reviews", {
           method: "POST",
           headers: {
             "content-type": "application/json",

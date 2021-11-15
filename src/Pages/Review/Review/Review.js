@@ -2,7 +2,7 @@ import { Grid, Paper, Typography, Box, Rating } from '@mui/material';
 import React from 'react';
 
 const Review = ({review}) => {
-    const {userName, uid, userEmail, userPhoto, userProfession, content, rating} = review;
+    const {userName, userPhoto, userProfession, content, rating} = review;
     return (
       <>
         <Grid item xs={12} md={4} sx={{ pb: 3 }}>

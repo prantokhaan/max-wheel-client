@@ -35,17 +35,17 @@ const MyOrders = () => {
   const [orders, setOrders] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/${user.email}`)
+    fetch(`https://calm-plateau-72250.herokuapp.com/myOrders/${user.email}`)
       .then((res) => res.json())
       .then((result) => setOrders(result));
-  }, [orders?.length]);
+  }, [orders?.length, user?.email]);
 
   const handleCancel = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to cancel this order?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/deleteOrder/${id}`, {
+      fetch(`https://calm-plateau-72250.herokuapp.com/deleteOrder/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
       })

@@ -7,7 +7,7 @@ const useFeaturedCars = () => {
       "https://raw.githubusercontent.com/prantokhaan/carData/main/featuredCarData.json";
 
     React.useEffect(() => {
-      fetch("http://localhost:5000/featuredCars")
+      fetch("https://calm-plateau-72250.herokuapp.com/featuredCars")
         .then((res) => res.json())
         .then((data) => setFeaturedCars(data));
     }, [featuredCars?.length]);

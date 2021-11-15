@@ -1,4 +1,4 @@
-import { Alert, Button, Container, Grid, Input, TextField, Typography } from '@mui/material';
+import { Alert, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box, styled } from '@mui/system';
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
@@ -53,7 +53,7 @@ const PurchasedCar = ({ purchasedCar }) => {
       purchasedCar: purchasedCar,
       status: "pending",
     };
-    fetch("http://localhost:5000/purchased", {
+    fetch("https://calm-plateau-72250.herokuapp.com/purchased", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -62,9 +62,9 @@ const PurchasedCar = ({ purchasedCar }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.insertedId !== ''){
+        if (data.insertedId !== "") {
           setIsPurchased(true);
-          e.target.reset()
+          e.target.reset();
         }
       });
   };

@@ -44,20 +44,20 @@ const AddNewCar = () => {
         const post = {
           ...carInfo
         }
-        fetch("http://localhost:5000/cars", {
-          method: 'POST',
+        fetch("https://calm-plateau-72250.herokuapp.com/cars", {
+          method: "POST",
           headers: {
-            'content-type': 'application/json'
+            "content-type": "application/json",
           },
-          body: JSON.stringify(post)
+          body: JSON.stringify(post),
         })
-        .then(res => res.json())
-        .then(data => {
-          if(data.insertedId !== ''){
-            setIsPosted(true);
-            e.target.reset()
-          }
-        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId !== "") {
+              setIsPosted(true);
+              e.target.reset();
+            }
+          });
     }
     
     return (

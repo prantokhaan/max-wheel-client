@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { Box, styled } from "@mui/system";
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box } from "@mui/system";
 import Car from "../Car/Car";
 import useCars from "../../../Hooks/useCars";
 

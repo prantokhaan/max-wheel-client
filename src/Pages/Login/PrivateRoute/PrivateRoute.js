@@ -1,4 +1,4 @@
-import { CircularProgress, Grid, Skeleton } from "@mui/material";
+import { Grid, Skeleton } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { Route, Redirect } from "react-router-dom";

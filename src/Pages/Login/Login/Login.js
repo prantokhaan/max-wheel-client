@@ -3,7 +3,6 @@ import {
   Alert,
   AlertTitle,
   Button,
-  CircularProgress,
   Container,
   Grid,
   TextField,
@@ -11,7 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import React from 'react';
-import { Link, NavLink, useLocation, useHistory } from "react-router-dom";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import loginImg from '../../../images/login-car.svg';
 import { styled } from "@mui/system";

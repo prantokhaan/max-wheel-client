@@ -6,11 +6,7 @@ import { Button, useMediaQuery, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/system';
 
-const BannerBackground = {
-    background: `url(${banner})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
-}
+
 const ButtonStyle = styled(Button)({
   fontFamily: `'Poppins', sans-serif`,
   fontSize: "16px",

@@ -1,30 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import useFirebase from "../../../Hooks/useFirebase";
 import './Footer.css'
 
 const Footer = () => {
-  const { user } = useFirebase();
-  // Styles
-  const socialLinkStyle = {
-    display: "inline-block",
-    border: "1px solid transparent",
-    height: "35px",
-    width: "35px",
-    color: "#000",
-    lineHeight: "35px",
-    textAlign: "center",
-    fontSize: "16px",
-    transition: "all 0.5s ease",
-    borderRadius: "50%",
-  };
-  const quickLinkStyle = {
-    color: "black",
-    padding: "8px 0",
-    textTransform: "capitalize",
-    fontSize: "16px",
-    textDecoration: "none",
-  };
+  
   return (
     <div>
       <div className="main-content">

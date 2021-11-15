@@ -10,7 +10,7 @@ import {
 import CircularProgress from "@mui/material/CircularProgress";
 import React, { useState } from "react";
 import registerImg from '../../../images/register.svg';
-import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 
 const Register = () => {

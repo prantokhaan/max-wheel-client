@@ -30,20 +30,20 @@ const MakeAdmin = () => {
 
     const handleMakeAdmin = e => {
         const user = {email}
-        fetch("http://localhost:5000/users/admin", {
-            method: 'PUT', 
-            headers: {
-                'content-type': 'application/json'
-            }, 
-            body: JSON.stringify(user)
-
-        }).then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount){
-                alert('Admin made successfullly');
-                e.target.reset();
-            }
+        fetch("https://calm-plateau-72250.herokuapp.com/users/admin", {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
         })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              alert("Admin made successfullly");
+              e.target.reset();
+            }
+          });
         e.preventDefault()
     }
     return (

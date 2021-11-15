@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
@@ -30,20 +29,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    fontFamily: `'Poppins', sans-serif`,
-  },
-  "&:nth-of-type(odd)": {
-    backgroundColor: "#f6f6f6",
-    color: "black",
-    fontFamily: `'Poppins', sans-serif`,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
+
 
 
 function Row({car}) {
@@ -55,7 +41,7 @@ function Row({car}) {
       "Are you sure, you want to delete this car?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/deleteCar/${id}`, {
+      fetch(`https://calm-plateau-72250.herokuapp.com/deleteCar/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
       })

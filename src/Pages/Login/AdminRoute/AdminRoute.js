@@ -1,11 +1,11 @@
-import { CircularProgress, Grid, Skeleton } from "@mui/material";
+import { Grid, Skeleton } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import useAuth from '../../../Hooks/useAuth';
 
 const AdminRoute = ({ children, ...rest }) => {
-  const { user, admin, isLoading } = useAuth();
+  const { user, admin } = useAuth();
   if (!admin) {
     return (
       <Box sx={{ mt: 2, ml: 3 }}>
